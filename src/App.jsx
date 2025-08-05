@@ -3,12 +3,14 @@ import DoorLeft from "./assets/imgs/door-left.png";
 import DoorRight from "./assets/imgs/door-right.png";
 import Bg from "./assets/imgs/bg.png";
 import Dresscode from "./assets/imgs/dresscode.png";
+import Avt from "./assets/imgs/avt.png";
 import Thankyou from "./assets/imgs/thankyou.png";
 import Volume from "./assets/svg/volume.svg?react";
 import VolumeX from "./assets/svg/volume-x.svg?react";
 import { motion } from "motion/react";
 import NameSvg from "./assets/svg/name.svg";
 import Information from "./assets/svg/information.svg";
+import Logo from "./assets/svg/logo.svg";
 import audioMp3 from "./assets/audio/audio.mp3";
 
 function App() {
@@ -26,9 +28,9 @@ function App() {
   };
 
   return (
-    <div className="m-0 p-0 overflow-hidden">
+    <>
       {/* audio */}
-      <audio autoPlay loop ref={audioRef}>
+      <audio loop ref={audioRef}>
         <source src={audioMp3} type="audio/mpeg" />
       </audio>
 
@@ -54,7 +56,7 @@ function App() {
             setShowDoor(false);
           }}
         >
-          <img src="/logo.svg" alt="" />
+          <img src={Logo} alt="" />
         </motion.div>
         <motion.div
           className="flex-1 h-full relative"
@@ -74,28 +76,32 @@ function App() {
         </motion.div>
       </motion.div>
 
-      <div className="h-screen overflow-y-scroll snap-y snap-mandatory">
-        <section className="h-screen flex items-center justify-center snap-start">
-          <div className="h-full w-full flex flex-col">
-            <div className="flex-1">
-              <img
-                src="/avt.png"
-                alt=""
-                className="object-cover w-full h-full"
-              />
-            </div>
-            <div className="flex-1 flex justify-center items-center">
-              <img src={NameSvg} alt="" />
+      <div className="h-svh overflow-y-scroll snap-y snap-mandatory">
+        <section className="h-svh snap-start">
+          <div className="h-svh w-full flex flex-col">
+            <div
+              className="flex-1 bg-no-repeat bg-cover bg-top"
+              style={{
+                backgroundImage: `url('${Avt}')`,
+              }}
+            ></div>
+            <div className="flex-1 p-3 ">
+              <div
+                className="bg-no-repeat bg-contain bg-center w-full h-full"
+                style={{
+                  backgroundImage: `url('${NameSvg}')`,
+                }}
+              ></div>
             </div>
           </div>
         </section>
         <section
-          className="h-screen flex items-center justify-center snap-start bg-no-repeat bg-cover bg-center"
+          className="h-svh snap-start bg-no-repeat bg-cover bg-center"
           style={{
             backgroundImage: `url('${Bg}')`,
           }}
         >
-          <div className="h-full w-full flex flex-col">
+          <div className="h-svh w-full flex flex-col">
             <div className="flex-1 flex justify-center items-center">
               <img src={Information} alt="" />
             </div>
@@ -119,8 +125,8 @@ function App() {
             </div>
           </div>
         </section>
-        <section className="h-screen flex items-center justify-center snap-start bg-[#FFEECF]">
-          <div className="h-full w-full flex flex-col px-5 py-16">
+        <section className="h-svh  snap-start bg-[#FFEECF]">
+          <div className="h-svh w-full flex flex-col px-5 py-5">
             <div className="flex-1">
               <div className="text-center text-[#513C1C] font-bold text-[32px] mb-5">
                 Dresscode
@@ -161,17 +167,16 @@ function App() {
                 </div>
               </div>
             </div>
-            <div className="flex-1">
-              <img
-                src={Dresscode}
-                alt=""
-                className="w-full h-full object-cover rounded-2xl"
-              />
-            </div>
+            <div
+              className="flex-1 bg-center bg-no-repeat bg-cover rounded-2xl"
+              style={{
+                backgroundImage: `url('${Dresscode}')`,
+              }}
+            ></div>
           </div>
         </section>
-        <section className="h-screen flex items-center justify-center snap-start bg-[#FFEECF]">
-          <div className="h-full w-full flex flex-col gap-6 px-5 py-16">
+        <section className="h-svh  snap-start bg-[#FFEECF]">
+          <div className="h-svh w-full flex flex-col gap-6 px-5 py-16">
             <div className="text-[#513C1C] text-center">
               <div className="font-bold text-[32px] mb-5">Thank you !</div>
               <div className="font-light text-[16px]">
@@ -181,15 +186,12 @@ function App() {
                 <div>graduation ceremony!</div>
               </div>
             </div>
-            <div className="flex-1 flex justify-center">
-              <div className="h-full">
-                <img
-                  src={Thankyou}
-                  alt=""
-                  className="h-full object-cover rounded-2xl"
-                />
-              </div>
-            </div>
+            <div
+              className="bg-center bg-no-repeat bg-contain flex-1"
+              style={{
+                backgroundImage: `url('${Thankyou}')`,
+              }}
+            ></div>
             <div className="text-[#513C1C]">
               <div className="font-bold text-[20px] mb-6">
                 Contact Information
@@ -206,7 +208,7 @@ function App() {
           </div>
         </section>
       </div>
-    </div>
+    </>
   );
 }
 
