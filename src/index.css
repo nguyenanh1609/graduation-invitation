@@ -1,1 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
 @import "tailwindcss";
+
+@theme {
+  --font-lora: "Lora", serif;
+}
+
+.scrollbar-hide {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none !important;
+}
